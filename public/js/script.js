@@ -16,10 +16,11 @@ function mainFunction(){
     search()
 
     function requestApi(searchText){
+        // https://pokeapi.co/
         axios.get(`https://pokeapi.co/api/v2/pokemon/${searchText}`)
             .then(function ({data}) {
                 // handle success
-                console.log(data);
+                // console.log(data);
                 displayPokemon(data.sprites.front_default)
             })
             .catch(function (error) {
@@ -31,7 +32,9 @@ function mainFunction(){
 
     function displayPokemon(pokemonImage){
         const pokePicEl = document.getElementById("pokePic");
-        pokePicEl.innerHTML= `<img src="${pokemonImage}"/>`
+        pokePicEl.innerHTML= `
+            <img src="${pokemonImage}"/>
+            <img id="mysteryPokemon" src="${pokemonImage}"/>`
     }
 
 }
