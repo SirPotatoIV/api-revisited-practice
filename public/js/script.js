@@ -46,14 +46,38 @@ function mainFunction(){
         .then(function ({data}) {
             // handle success
             const pokePicEl = document.getElementById("mysteryPokePicDiv");
-            pokePicEl.innerHTML= `<img id="mysteryPokemon" src="${data.sprites.front_default}"/>`
+            pokePicEl.innerHTML= `<img class="mysteryPokemon" id="${pokemonGuessNames[0]}" src="${data.sprites.front_default}"/>`
+            renderGuessButtons(pokemonGuessNames);
         })
         .catch(function (error) {
             // handle error
             console.log(error);
         })
     }
-    // getRandomPokemon()
+
+    function renderGuessButtons(pokemonGuessNames){
+        // const pokemonGuessNames = ['ditto', 'charizard', 'mr.mime', 'abra']
+        const guessBtnEl = document.getElementById("guessBtnDiv");
+        guessBtnEl.innerHTML = `
+            <button class="pokeGuess" id="${pokemonGuessNames[0]}">${pokemonGuessNames[0]}</button>
+            <button class="pokeGuess" id="${pokemonGuessNames[1]}">${pokemonGuessNames[1]}</button>
+            <button class="pokeGuess" id="${pokemonGuessNames[2]}">${pokemonGuessNames[2]}</button>
+            <button class="pokeGuess" id="${pokemonGuessNames[3]}">${pokemonGuessNames[3]}</button>
+        `
+        const guessBtnEls = document.querySelectorAll(".pokeGuess")
+        console.log(guessBtnEls)
+        // console.log(guessBtnEl)
+        for(let i = 0; i < guessBtnEls.length; i++){
+            guessBtnEls[i].addEventListener("click", function(){
+                console.log(event.target.innerText)
+            })
+        }
+    }
+    renderGuessButtons()
+
+    function checkGuess(){
+
+    }
 
     function requestApiSearch(searchText){
         // https://pokeapi.co/

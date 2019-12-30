@@ -1,4 +1,4 @@
 /* https://css-tricks.com/almanac/properties/f/filter/ */
-#mysteryPokemon{
+.mysteryPokemon{
     filter: brightness(0%)
 }
