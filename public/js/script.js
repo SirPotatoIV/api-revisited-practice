@@ -30,7 +30,23 @@ function mainFunction(){
                  console.log(error);
              })
     }
-    getRandomPokemon()
+    // getRandomPokemon()
+
+    function getAllPokemon(){
+        const pokemonNameList = [];
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=150`)
+             .then(function ({data}) {
+                // handle success
+                // console.log(data.results)
+                pokemonNameList.push(data.results[0].name)
+                console.log(pokemonNameList)
+             })
+             .catch(function (error) {
+                 // handle error
+                 console.log(error);
+             })
+    }
+    getAllPokemon()
 
     function requestApiSearch(searchText){
         // https://pokeapi.co/
