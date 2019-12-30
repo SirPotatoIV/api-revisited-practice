@@ -8,20 +8,27 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
-    <form action="" method="get" class="form-example">
-        <div class="form-example">
-          <label for="name">Enter Pokemon name/id: </label>
-          <input type="text" name="name" id="searchInput" required>
-        </div>
-        <div class="form-example">
-          <input type="submit" id="searchBtn" value="Start Search">
-        </div>
-    </form>
+    <section>
+        <h1>Search for a Pokemon</h1>
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+        <form action="" method="get" class="form-example">
+            <div class="form-example">
+            <label for="name">Enter Pokemon name/id: </label>
+            <input type="text" name="name" id="searchInput" required>
+            </div>
+            <div class="form-example">
+            <input type="submit" id="searchBtn" value="Start Search">
+            </div>
+        </form>
 
-    <div id="pokePic"></div>
-    <!-- <img id="testPic" src="images/100.png" alt="" srcset=""> -->
+        <div id="pokePic"></div>
+    </section>
 
+    <section>
+        <h1>Pokemon Guess Game</h1>
+
+        <div id="mysteryPokePicDiv"></div>
+    </section>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.js"></script>
