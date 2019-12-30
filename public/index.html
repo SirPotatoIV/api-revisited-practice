@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Pokemon</h1>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+    <form action="" method="get" class="form-example">
+        <div class="form-example">
+          <label for="name">Enter Pokemon name: </label>
+          <input type="text" name="name" id="name" required>
+        </div>
+        <div class="form-example">
+          <input type="submit" value="Start Search">
+        </div>
+      </form>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.js"></script>
