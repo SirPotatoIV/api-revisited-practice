@@ -56,8 +56,16 @@ function mainFunction(){
     }
 
     function renderGuessButtons(pokemonGuessNames){
-        // const pokemonGuessNames = ['ditto', 'charizard', 'mr.mime', 'abra']
+        const correctPokemon = pokemonGuessNames[0];
+        const pokeArray = pokemonGuessNames;
         const guessBtnEl = document.getElementById("guessBtnDiv");
+        
+        // https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+        for (let i = pokeArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [pokeArray[i], pokeArray[j]] = [pokeArray[j], pokeArray[i]];
+        }
+        // console.log(pokeArray)
         guessBtnEl.innerHTML = `
             <button class="pokeGuess" id="${pokemonGuessNames[0]}">${pokemonGuessNames[0]}</button>
             <button class="pokeGuess" id="${pokemonGuessNames[1]}">${pokemonGuessNames[1]}</button>
@@ -65,18 +73,31 @@ function mainFunction(){
             <button class="pokeGuess" id="${pokemonGuessNames[3]}">${pokemonGuessNames[3]}</button>
         `
         const guessBtnEls = document.querySelectorAll(".pokeGuess")
-        console.log(guessBtnEls)
+        // console.log(guessBtnEls)
         // console.log(guessBtnEl)
         for(let i = 0; i < guessBtnEls.length; i++){
             guessBtnEls[i].addEventListener("click", function(){
-                console.log(event.target.innerText)
+                const userGuess = event.target.innerText;
+                checkGuess(correctPokemon, userGuess);
+                // console.log(event.target.innerText)
             })
         }
     }
-    renderGuessButtons()
+    // renderGuessButtons()
 
-    function checkGuess(){
+    function checkGuess(correctPokemon, userGuess){
+        if(correctPokemon === userGuess){
+            // console.log("correct")
+            displayOutcome("correct")
+        }else{
+            // console.log("incorrect")
+            displayOutcome("incorrect")
+        }
+    }
 
+    function displayOutcome(outcome){
+        const outcomeMessageEl = document.getElementById("outcomeMessage");
+        outcomeMessageEl.innerHTML = `<h1>${outcome}</h1>`;
     }
 
     function requestApiSearch(searchText){
