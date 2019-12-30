@@ -37,9 +37,9 @@ function mainFunction(){
         axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=150`)
              .then(function ({data}) {
                 // handle success
-                // console.log(data.results)
-                pokemonNameList.push(data.results[0].name)
-                console.log(pokemonNameList)
+                for(let i=0; i < data.results.length; i++){
+                    pokemonNameList.push(data.results[i].name)
+                }
              })
              .catch(function (error) {
                  // handle error
