@@ -7,13 +7,16 @@ function mainFunction(){
         // console.log(searchBtnEl)
         searchBtnEl.addEventListener("click", function(){
             event.preventDefault();
-            console.log(searchInputEl.value)
+            const searchText = searchInputEl.value;
+            requestApi(searchText);
+            // console.log(searchInputEl.value)
+
         })
     }
     search()
 
-    function requestApi(){
-        axios.get('https://pokeapi.co/api/v2/pokemon/squirtle')
+    function requestApi(searchText){
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${searchText}`)
             .then(function (response) {
                 // handle success
                 console.log(response);
